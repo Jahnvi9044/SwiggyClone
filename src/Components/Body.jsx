@@ -19,15 +19,15 @@ const Body = () => {
 
     async function fetchData() {
       try {
-        const response = await fetch(
-          "https://proxy.corsfix.com/?https://www.swiggy.com/dapi/restaurants/list/v5?lat=21.99740&lng=79.00110&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING/"
-        );
-        const json = await response.json();
+        // const response = await fetch(
+        //   "https://proxy.corsfix.com/?https://www.swiggy.com/dapi/restaurants/list/v5?lat=21.99740&lng=79.00110&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING/"
+        // );
+        // const json = await response.json();
 
         if (isMounted) {
           let fetchedData = resData.data?.cards[0]?.card?.card?.gridElements?.infoWithStyle?.restaurants.concat(
-            json?.data?.cards[4]?.card?.card?.gridElements?.infoWithStyle?.restaurants
-          ) || [];
+            // json?.data?.cards[4]?.card?.card?.gridElements?.infoWithStyle?.restaurants
+          []) || [];
 
           // Remove duplicates
           const uniqueData = Array.from(new Map(fetchedData.map(item => [item.info.id, item])).values());
