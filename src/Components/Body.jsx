@@ -11,7 +11,7 @@ const Body = () => {
   const [filtered, setFiltered] = useState([]);
   const [toggle, setToggle] = useState(true);
    
-  const [searchText,setSearchText] = useState("Search resturant ");
+  const [searchText,setSearchText] = useState("");
 
 
   useEffect(() => {
@@ -62,8 +62,8 @@ const Body = () => {
       </button>
 
       <input type="text" 
-        placeholder="Search" 
-        className="border rounded-sm" 
+        placeholder="Search Restaurnt" 
+        className="border rounded-sm p-1" 
         value={searchText}
         onChange={(e)=>{setSearchText(e.target.value)}}
         />
