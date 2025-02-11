@@ -1,7 +1,8 @@
-import React from 'react'
+import React, { useState } from 'react'
+import { NavLink } from 'react-router-dom';
 
 const Card = React.memo( function({res}) {
-    
+  
   
     // console.log(res);
     
@@ -16,6 +17,7 @@ const Card = React.memo( function({res}) {
     // console.log(offer);
     let rating = (res.avgRating)?res.avgRating:0.0;
     return (
+    <NavLink to={`/resturant/${res.id}`}>
     <div className=" transform transition-transform duration-280 hover:scale-95 p-4 m-2 flex flex-col justify-start items-start  w-64   rounded-md"> 
       <div className=" relative w-[250px] h-[180px] rounded-2xl overflow-hidden shadow-xl shadow-slate-300">
          <img
@@ -54,6 +56,7 @@ const Card = React.memo( function({res}) {
         </div>
         
     </div>
+    </NavLink>
   )
 }
 )

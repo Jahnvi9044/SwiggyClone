@@ -1,6 +1,7 @@
 import React from 'react'
 import swiggy from '../assets/swiggy.svg'
 import { useState } from 'react';
+import { NavLink } from 'react-router-dom';
 const Header = () => {
 
     const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -13,7 +14,8 @@ const Header = () => {
 
     <nav className="sticky top-0 z-50  bg-white border-gray-200 shadow-md lg:px-24 px-4 ">
       <div className="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
-        <a href="https://flowbite.com/" className="flex items-center space-x-3 rtl:space-x-reverse">
+        
+        <NavLink to="/" className="flex items-center space-x-3 rtl:space-x-reverse">
         <svg
         className="w-14 h-14 transform transition-transform duration-300 hover:scale-110"
         xmlns="http://www.w3.org/2000/svg"
@@ -40,7 +42,7 @@ const Header = () => {
         </defs>
       </svg>
          
-        </a>
+        </NavLink>
         <button
           onClick={toggleMenu}
           type="button"
@@ -64,44 +66,44 @@ const Header = () => {
           }}> {login?"Login":"Logout"} </button>
           
             <li>
-              <a
-                href="#"
+              <NavLink
+                to="/"
                 className="block py-2 px-3 text-white bg-[#ff5200] rounded-sm md:bg-transparent md:text-[#ff5200] md:p-0"
                 aria-current="page"
               >
                 Home
-              </a>
+              </NavLink>
             </li>
             <li>
-              <a
-                href="#"
+                <NavLink
+                to="/about"
                 className="block py-2 px rounded-sm hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-[#ff5200] md:p-0 dark:text-white  "
               >
                 About
-              </a>
+              </NavLink>
             </li>
             <li>
-              <a
-                href="#"
+                <NavLink
+                to="/"
                 className="block py-2 px rounded-sm hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-[#ff5200] md:p-0 "
               >
                 Services
-              </a>
+              </NavLink>
             </li>
             <li>
-              <a
-                href="#"
+                <NavLink
+                to="/"
                 className="block py-2 px rounded-sm hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-[#ff5200] md:p-0  "
               >
                 Pricing
-              </a>
+              </NavLink>
             </li>
             <li>
-              <a
-                href="#"
+                 <NavLink
+                to="/contact"
                 className="block py-2 px rounded-sm hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-[#ff5200] md:p-0 dark:text-white md:dark:hover:text-blue-500" >
                 Contact
-              </a>
+              </NavLink>
             </li>
           </ul>
 
