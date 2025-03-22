@@ -12,17 +12,17 @@ const Card = React.memo( function({res}) {
     //     costForTwo,
     //     cuisines  ] = res;
 
-    let offer = res.aggregatedDiscountInfoV3?.header + res.aggregatedDiscountInfoV3?.subHeader;
+    let offer = res?.aggregatedDiscountInfoV3?.header + res?.aggregatedDiscountInfoV3?.subHeader;
     let time = Math.round(res?.sla?.deliveryTime/5)*5;
     // console.log(offer);
-    let rating = (res.avgRating)?res.avgRating:0.0;
+    let rating = (res?.avgRating)? res?.avgRating : 0.0;
     return (
-    <NavLink to={`/resturant/${res.id}`}>
+    <NavLink to={`/resturant/${res?.id}`}>
     <div className=" transform transition-transform duration-280 hover:scale-95 p-4 m-2 flex flex-col justify-start items-start  w-64   rounded-md"> 
       <div className=" relative w-[250px] h-[180px] rounded-2xl overflow-hidden shadow-xl shadow-slate-300">
          <img
           className="w-full h-auto object-cover"
-          src={"https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_660/"+res.cloudinaryImageId}
+          src={"https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_660/"+res?.cloudinaryImageId}
           alt="Burger Image"
          />
          {/* Gradient Overlay */}
@@ -34,7 +34,7 @@ const Card = React.memo( function({res}) {
       </div>
         {/* Content of card */ }
         <div className='px-4 py-4'>
-        <h1 className='text-lg font-bold'>{res.name}</h1>
+        <h1 className='text-lg font-bold'>{res?.name}</h1>
         <div className='flex space-x-2'>
            <svg width="20" height="20" viewBox="0 0 20 20" fill="none" role="img" aria-hidden="true" >
             <circle cx="10" cy="10" r="9" fill="url(#StoreRating20_svg__paint0_linear_32982_71567)"></circle><path d="M10.0816 12.865C10.0312 12.8353 9.96876 12.8353 9.91839 12.865L7.31647 14.3968C6.93482 14.6214 6.47106 14.2757 6.57745 13.8458L7.27568 11.0245C7.29055 10.9644 7.26965 10.9012 7.22195 10.8618L4.95521 8.99028C4.60833 8.70388 4.78653 8.14085 
@@ -43,15 +43,15 @@ const Card = React.memo( function({res}) {
             <h3 className='font-semibold'>{rating} </h3>           
            <h3 className='font-medium'>{time-5}-{time} mins</h3>
         </div>
-        <h3 className='font-bold'>{res.costForTwo}</h3>
+        <h3 className='font-bold'>{res?.costForTwo}</h3>
         
         { 
           (res.locality!=res.areaName)?
           <>
-            <h3 className='text-slate-500 font-medium' >{res.locality}</h3>
-            <h3 className='text-slate-500  font-medium '>{res.areaName}</h3>
+            <h3 className='text-slate-500 font-medium' >{res?.locality}</h3>
+            <h3 className='text-slate-500  font-medium '>{res?.areaName}</h3>
           </>:          
-            <h3 className='text-slate-500 font-medium' >{res.locality}</h3>
+            <h3 className='text-slate-500 font-medium' >{res?.locality}</h3>
        }
         </div>
         

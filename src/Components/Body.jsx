@@ -25,8 +25,8 @@ const Body = () => {
         const json = await response.json();
          console.log(json.data);   
         if (isMounted) {
-          let fetchedData = resData.data?.cards[0]?.card?.card?.gridElements?.infoWithStyle?.restaurants.concat(
-            json?.data?.cards[4]?.card?.card?.gridElements?.infoWithStyle?.restaurants) || [];
+          let fetchedData = resData.data?.cards[0]?.card?.card?.gridElements?.infoWithStyle?.restaurants
+          .concat( json?.data?.cards[4]?.card?.card?.gridElements?.infoWithStyle?.restaurants) || [];
 
           // Remove duplicates
           const uniqueData = Array.from(new Map(fetchedData.map(item => [item?.info?.id, item])).values());
@@ -35,7 +35,7 @@ const Body = () => {
           setFilteredList(uniqueData);
         }
       } catch (error) {
-        console.error("Error fetching data:", error);
+        console.log("Error fetching data:", error);
       }
     }
 
@@ -80,7 +80,7 @@ const Body = () => {
 
       <div className="flex flex-wrap justify-center space-x-4">
         {filteredList.map(item => (
-          <Card key={item.info.id} res={item.info} />
+          <Card key={item?.info?.id} res={item?.info} />
         ))}
       </div>
 

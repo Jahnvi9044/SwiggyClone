@@ -1,20 +1,19 @@
 import { useState,useEffect } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-
 import { Product } from './Practice/Product'
+
+
 function App() {
-  const [count, setCount] = useState(0);
+  const [count,setCount] = useState(0);
   const [title,setTitle] = useState(0);
 
   
-  //this useEffect runs after the App component renders the 1st time .Not on re-renders . this will not run after re-renders
+  // This useEffect runs after the App component renders the 1st time .Not on re-renders .This will not run after re-renders
   useEffect(()=>{
-    setCount(count=>count+100);
+    setCount(count => count+100 );
  },[]);
 
 
-  //this useEffect runs after the body component renders  1st time + when the count changes . Not run safter rerenders.
+  // This useEffect runs after the body component renders  1st time + when the count changes . Not runs after rerenders.
   useEffect(()=>{
       console.log("1222") 
   },[count]);
@@ -27,14 +26,11 @@ function App() {
 
   function handleCount()
   {  
-   
-
      setCount(count =>count+1);
-
-     console.log("count",count);
-    
+     console.log("count",count);  
   }
-   console.log(count);
+
+  console.log(count);
   return (
     <div className="items-center text-center m-5">
      <h1 className="text-3xl font-bold underline bg-red-500">
